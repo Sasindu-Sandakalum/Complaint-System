@@ -1,0 +1,177 @@
+.login-page {
+  --ink: #182944;
+  --blue: #253f83;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100svh;
+  background: #fff;
+  color: var(--ink);
+}
+
+.login-layout {
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.02fr) minmax(0, 1fr);
+  width: min(100%, 112rem);
+  margin-inline: auto;
+  padding: clamp(1rem, 2vw, 2rem);
+}
+
+.campus-panel {
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: 1rem;
+  min-height: clamp(35rem, 77svh, 62rem);
+  padding: clamp(2.2rem, 4.35vw, 5rem);
+  background: #152c4f url('/nibm-colombo.jpg') center 32% / cover no-repeat;
+  color: white;
+}
+
+.campus-panel::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: linear-gradient(180deg, rgb(10 29 55 / 5%) 0%, rgb(10 29 55 / 13%) 29%, rgb(9 27 54 / 76%) 58%, #0d2140 100%);
+}
+
+.campus-copy { max-width: 32rem; }
+.campus-copy::before {
+  content: '';
+  display: block;
+  width: 3rem;
+  height: .25rem;
+  margin-bottom: 1.5rem;
+  background: #fa5759;
+}
+.campus-copy h1 {
+  max-width: 10.6em;
+  margin: 0;
+  font-size: clamp(2.6rem, 4.25vw, 4.65rem);
+  line-height: 1.04;
+  letter-spacing: -.05em;
+  font-weight: 650;
+  text-wrap: balance;
+}
+.campus-copy p {
+  max-width: 29em;
+  margin: 1.4rem 0 0;
+  font-size: clamp(1rem, 1.2vw, 1.25rem);
+  line-height: 1.6;
+  color: #f3f5f9;
+}
+
+.auth-panel {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  padding: 3rem clamp(1.8rem, 5vw, 6rem);
+}
+.auth-content { width: min(100%, 25rem); }
+.nibm-logo {
+  display: block;
+  width: min(100%, 16rem);
+  height: auto;
+  margin: 0 0 2.75rem -1.45rem;
+}
+.auth-content h2 {
+  margin: 0 0 1.8rem;
+  font-size: clamp(2rem, 2.7vw, 2.65rem);
+  line-height: 1.15;
+  letter-spacing: -.045em;
+  font-weight: 650;
+}
+.auth-content form { display: grid; gap: 1rem; }
+.input-box {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  padding-left: 1rem;
+  min-height: 3.5rem;
+  border: 1px solid #b7c1d0;
+  border-radius: .5rem;
+  color: #68778d;
+  background: #fff;
+}
+.input-box > svg { flex: none; }
+.input-box:focus-within { outline: 2px solid var(--blue); outline-offset: 1px; }
+.input-box:has([aria-invalid=true]) { border-color: #af2939; }
+.input-box input {
+  width: 100%;
+  min-width: 0;
+  flex: 1;
+  min-height: 3.35rem;
+  padding: .65rem .75rem .65rem 0;
+  font-size: 1rem;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  outline: none;
+}
+.input-box input::placeholder { color: #626d7e; opacity: 1; }
+.input-box input::-ms-reveal { display: none; }
+.password-eye { flex: none; margin-right: 1rem; }
+.required-error, .response-message { display: none; }
+.field:has(input:user-invalid) .required-error,
+.response-message:target { display: block; }
+.login-button {
+  margin-top: .35rem;
+  min-height: 3.35rem;
+  border: 0;
+  border-radius: .5rem;
+  background: var(--blue);
+  color: #fff;
+  font-weight: 650;
+  cursor: pointer;
+}
+.login-button:hover { background: #1a326f; }
+.auth-content :is(button, a):focus-visible {
+  outline: 3px solid #4869b9;
+  outline-offset: 3px;
+}
+.register-line { margin: 1.55rem 0 0; text-align: center; line-height: 1.6; color: #506078; }
+.register-line a { color: var(--blue); font-weight: 650; text-underline-offset: .2em; }
+.field-error, .session-notice { font-size: .9rem; line-height: 1.45; }
+.field-error { color: #a52132; margin: 0; }
+.field > .field-error { margin-top: .45rem; }
+.session-notice { background: #edf2fa; padding: .8rem 1rem; border-radius: .4rem; margin: 0; }
+.login-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-top: 1px solid #e2e6ed;
+  padding: 1.25rem clamp(1.5rem, 3.1vw, 4rem);
+  font-size: .875rem;
+  line-height: 1.5;
+  color: #59677b;
+}
+.policy-links { display: flex; align-items: center; gap: 1.2rem; }
+.policy-links a + a { border-left: 1px solid #c8cfda; padding-left: 1.2rem; }
+
+@media (max-width: 48rem) {
+  .login-layout { grid-template-columns: minmax(0, 1fr); align-content: start; padding: .8rem; }
+  .campus-panel { min-height: 17rem; padding: 1.75rem; background-position: center 32%; }
+  .campus-panel::before { background: linear-gradient(85deg, rgb(9 27 54 / 95%), rgb(9 27 54 / 82%) 40%, rgb(9 27 54 / 32%)); }
+  .campus-copy { max-width: 27rem; }
+  .campus-copy h1 { font-size: clamp(2rem, 6vw, 2.8rem); }
+  .campus-copy::before { width: 2.2rem; height: .2rem; margin-bottom: .9rem; }
+  .campus-copy p { margin-top: .8rem; line-height: 1.5; }
+  .auth-panel { padding: 2rem .75rem 2.5rem; }
+  .nibm-logo { width: 13.5rem; margin: 0 0 1.2rem -1.25rem; }
+}
+
+@media (max-width: 30rem) {
+  .campus-panel { padding: 1.4rem; min-height: 15rem; }
+  .login-footer { flex-wrap: wrap; justify-content: center; gap: .45rem 1rem; text-align: center; }
+}
+
+@media (forced-colors: active) {
+  .login-button { border: 1px solid ButtonText; }
+  .campus-panel { background: Canvas; color: CanvasText; }
+  .campus-copy p { color: CanvasText; }
+}
