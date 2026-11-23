@@ -153,6 +153,14 @@
 .policy-links { display: flex; align-items: center; gap: 1.2rem; }
 .policy-links a + a { border-left: 1px solid #c8cfda; padding-left: 1.2rem; }
 
+@media (width > 48rem) {
+  .login-page {
+    display: grid;
+    grid-template-rows: 1fr auto;
+  }
+  .campus-panel { min-height: 0; }
+}
+
 @media (max-width: 48rem) {
   .login-layout { grid-template-columns: minmax(0, 1fr); align-content: start; padding: .8rem; }
   .campus-panel { min-height: 17rem; padding: 1.75rem; background-position: center 32%; }

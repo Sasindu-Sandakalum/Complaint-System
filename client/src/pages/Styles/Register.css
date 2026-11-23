@@ -1,0 +1,61 @@
+@import './Login.css';
+
+.registration {
+  --field-gap: 1rem;
+  --section-gap: 1.5rem;
+}
+
+.registration .auth-panel {
+  padding: var(--section-gap) clamp(1.25rem, 4vw, 4rem);
+}
+.registration-mark { display: block; margin-bottom: var(--field-gap); }
+.registration .auth-content h2 { margin: 0 0 .5rem; }
+.registration-intro {
+  margin: 0 0 var(--section-gap);
+  color: #506078;
+  line-height: 1.55;
+}
+
+.registration .auth-content form { gap: var(--field-gap); }
+.registration .field { display: grid; gap: .375rem; }
+.registration label { font-weight: 600; }
+.registration .input-box { padding: 0; }
+.registration .input-box input { padding: .75rem 1rem; }
+.registration small { color: #506078; line-height: 1.45; }
+.registration [role=alert], .registration [role=status] {
+  margin: 0;
+  font-size: .9rem;
+  line-height: 1.45;
+}
+.registration [role=alert] { color: #a52132; }
+.registration [role=status] { color: #17603e; }
+.registration .login-button { margin: 0; padding: .75rem 1rem; }
+.registration .register-line { margin: var(--field-gap) 0 0; }
+
+@media (max-height: 52rem) {
+  .registration { --field-gap: .75rem; --section-gap: 1rem; }
+  .registration-mark { width: 2.25rem; height: 2.25rem; }
+  .registration .input-box { min-height: 2.85rem; }
+  .registration .input-box input { min-height: 2.7rem; padding-block: .625rem; }
+}
+
+@media (max-width: 48rem) {
+  .registration .login-layout { row-gap: var(--section-gap); }
+  .registration .auth-panel { padding: 0 .5rem var(--field-gap); }
+}
+
+@media (max-height: 48rem) {
+  .registration .login-layout { padding-block: .625rem; }
+  .registration .auth-panel { padding-block: .5rem; }
+  .registration .auth-content {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    column-gap: .625rem;
+  }
+  .registration-mark { width: 2rem; height: 2rem; margin: 0; }
+  .registration .auth-content h2 { margin: 0; font-size: 1.85rem; }
+  .registration .auth-content > :is(p, form) { grid-column: 1 / -1; }
+  .registration-intro { margin-block: .625rem .875rem; }
+  .registration .login-footer { padding-block: .625rem; }
+}
