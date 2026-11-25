@@ -1,6 +1,18 @@
-import './Styles/Register.css'
+import './Register.css';
+
+import type { FormEvent } from 'react';
 
 export default function Register() {
+
+  function handleRegister(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    const username = formData.get('username');
+    const password = formData.get('password');
+    const confirmation = formData.get('confirmation');
+    console.log(username);
+  }
+
   return (
     <div className="login-page registration">
       <main className="login-layout">
@@ -19,14 +31,12 @@ export default function Register() {
         </svg>
             <h2 id="register-heading">Create Your Account</h2>
           <p className="registration-intro">Your NIBM email has been verified. Complete your registration by creating a username and password.</p>
-          <form aria-label="Create Your Account" noValidate>
+          <form aria-label="Create Your Account" noValidate onSubmit={handleRegister}>
             <div className="field">
               <label htmlFor="register-username">Username</label>
               <div className="input-box">
                 <input id="register-username" name="username" autoComplete="username" placeholder="Enter your username" required />
               </div>
-              <p hidden role="alert">Please enter your username.</p>
-              <p hidden role="alert">Username already exists.</p>
             </div>
             <div className="field">
               <label htmlFor="register-password">Password</label>
@@ -34,19 +44,14 @@ export default function Register() {
                 <input id="register-password" type="password" name="password" autoComplete="new-password" placeholder="Enter your password" aria-describedby="password-help" required />
               </div>
               <small id="password-help">Choose a strong password to keep your account secure.</small>
-              <p hidden role="alert">Please enter your password.</p>
-              <p hidden role="alert">Please choose a stronger password to help keep your account secure.</p>
             </div>
             <div className="field">
               <label htmlFor="register-confirm">Confirm Password</label>
               <div className="input-box">
                 <input id="register-confirm" type="password" name="confirmation" autoComplete="new-password" placeholder="Re-enter your password" required />
               </div>
-              <p hidden role="alert">Please confirm your password.</p>
-              <p hidden role="alert">The passwords you entered do not match. Please try again.</p>
             </div>
-            <button className="login-button" type="button">Register</button>
-            <p hidden role="status">Your account has been registered successfully.</p>
+            <button className="login-button" type="submit">Register</button>
           </form>
           <p className="register-line">Already have an account? <a href="/login">Login</a></p>
           </div>
